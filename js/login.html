@@ -149,6 +149,40 @@
       text-decoration: underline;
     }
 
+    .acoes-login {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .forgot-link,
+    .btn-criar-conta {
+      display: inline-block;
+      font-size: 14px;
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .btn-criar-conta {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0;
+    }
+
+    .campo-escondido {
+      display: none;
+    }
+
+    .mensagem-formulario {
+      min-height: 18px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
    
     .info-direita {
       position: absolute;
@@ -194,7 +228,7 @@
   </header>
 
   <div class="login-card">
-    <h2>Entrar</h2>
+    <h2 id="tituloFormulario">Entrar</h2>
 
     <form id="loginForm">
       <div class="form-group">
@@ -215,10 +249,20 @@
         </div>
       </div>
 
+      <div class="form-group campo-escondido" id="grupoConfirmarSenha">
+        <label for="confirmarSenha">Confirmar senha</label>
+        <input type="password" id="confirmarSenha" placeholder="Digite a senha novamente">
+      </div>
+
+      <p class="mensagem-formulario" id="mensagemFormulario"></p>
+
       <button type="submit" class="btn-entrar" id="btnEntrar" disabled>Entrar</button>
     </form>
 
-    <a href="#" class="forgot-link">Esqueceu a senha ou nome de usuário?</a>
+    <div class="acoes-login">
+      <a href="#" class="forgot-link">Esqueceu a senha ou nome de usuário?</a>
+      <button type="button" class="btn-criar-conta" id="btnCriarConta">Criar conta</button>
+    </div>
   </div>
 
   <div class="info-direita">
@@ -231,52 +275,7 @@
     <p>Todos os direitos reservados para Caue goedert</p>
   </footer>
 
-  <script>
-    const inputUsuario = document.getElementById("usuario");
-    const inputSenha = document.getElementById("senha");
-    const btnOlho = document.getElementById("btnOlho");
-    const iconeOlho = document.getElementById("iconeOlho");
-    const btnEntrar = document.getElementById("btnEntrar");
-    const form = document.getElementById("loginForm");
-
-    btnOlho.addEventListener("click", () => {
-      const estaEscondida = inputSenha.type === "password";
-      inputSenha.type = estaEscondida ? "text" : "password";
-
-      if (estaEscondida) {
-        iconeOlho.innerHTML = `
-          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-          <circle cx="12" cy="12" r="3"></circle>
-        `;
-      } else {
-        iconeOlho.innerHTML = `
-          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
-          <line x1="1" y1="1" x2="23" y2="23"></line>
-        `;
-      }
-    });
-
-    function verificarCampos() {
-      const temUsuario = inputUsuario.value.trim() !== "";
-      const temSenha = inputSenha.value.trim() !== "";
-
-      if (temUsuario && temSenha) {
-        btnEntrar.disabled = false;
-        btnEntrar.classList.add("ativo");
-      } else {
-        btnEntrar.disabled = true;
-        btnEntrar.classList.remove("ativo");
-      }
-    }
-
-    inputUsuario.addEventListener("input", verificarCampos);
-    inputSenha.addEventListener("input", verificarCampos);
-
-    form.addEventListener("submit", (evento) => {
-      evento.preventDefault();
-      window.location.href = "../jogo/inicio.html";
-    });
-  </script>
+  <script src="login.js"></script>
 
 </body>
 </html>
