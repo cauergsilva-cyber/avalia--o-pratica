@@ -36,6 +36,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function voltarParaLogin() {
+    modoCriarConta = false;
+
+    tituloFormulario.textContent = "Entrar";
+    btnEntrar.textContent = "Entrar";
+    btnCriarConta.textContent = "Criar conta";
+    grupoConfirmarSenha.classList.add("campo-escondido");
+
+    inputUsuario.value = "";
+    inputSenha.value = "";
+    confirmarSenha.value = "";
+    mensagemFormulario.textContent = "Conta criada com sucesso. Agora faça o login.";
+
+    verificarCampos();
+  }
+
   function alternarModo() {
     modoCriarConta = !modoCriarConta;
 
@@ -106,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       localStorage.setItem("contaRoblox", JSON.stringify({ usuario, senha }));
-      concluirEntrada(usuario);
+      voltarParaLogin();
       return;
     }
 
