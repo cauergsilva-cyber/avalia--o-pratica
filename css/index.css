@@ -1,0 +1,64 @@
+.fundo-roblox {
+    width: 2cqmin;
+    height: 200%;
+    object-fit: cover;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+p {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+body {
+      background-color: #0b0c0e;
+      background-image: url("../assets/fundoRoblox.webp");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 16px;
+      text-align: center;
+      width: 100%;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
+    .info-direita {
+      position: absolute;
+      bottom: 32px;
+      right: 4%;
+      max-width: 520px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 24px;
+      left: 5%;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+    }

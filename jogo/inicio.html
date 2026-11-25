@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roblox Site</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #0b0c0e;
+      background-image: url("../assets/fundoRoblox.webp");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      color: #ffffff;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 1. Texto superior central ("Roblox Site") */
+    header {
+      position: absolute;
+      top: 28px;
+      left: 55%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 38px;
+      font-weight: 800;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+    }
+
+    /* 2. Cartão de Login à esquerda */
+    .login-card {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      background-color: #191b1f;
+      width: 100%;
+      max-width: 390px;
+      padding: 32px 28px;
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+    }
+
+    .login-card h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #e5e7eb;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    input {
+      width: 100%;
+      background-color: #23252a;
+      border: 1px solid #494d55;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 15px;
+      color: #ffffff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input::placeholder {
+      color: #9ca3af;
+    }
+
+    input:focus {
+      border-color: #ffffff;
+    }
+
+    #senha {
+      padding-right: 44px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      color: #d1d5db;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 4px;
+    }
+
+    .toggle-password:hover {
+      color: #ffffff;
+    }
+
+    .btn-entrar {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #393b3d;
+      color: #8b8d91;
+      cursor: not-allowed;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .btn-entrar.ativo {
+      background-color: #ffffff;
+      color: #111214;
+      cursor: pointer;
+    }
+
+    .btn-entrar.ativo:hover {
+      background-color: #e5e7eb;
+    }
+
+    .forgot-link {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* 3. Bloco de texto inferior direito (SEM borda/fundo escuro) */
+    .info-direita {
+      position: absolute;
+      bottom: 32px;
+      right: 4%;
+      max-width: 520px;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+    }
+
+    .info-direita h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .info-direita p {
+      font-size: 15px;
+      color: #e5e7eb;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    /* 4. Rodapé inferior esquerdo (SEM borda/fundo escuro) */
+    footer {
+      position: absolute;
+      bottom: 24px;
+      left: 5%;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #d1d5db;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Roblox Site</h1>
+  </header>
+
+  <div class="login-card">
+    <h2>Entrar</h2>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="usuario">Nome de usuário, e-mail ou telefone</label>
+        <input type="text" id="usuario" placeholder="Nome de usuário, e-mail ou telefone" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <div class="input-wrapper">
+          <input type="password" id="senha" placeholder="Senha">
+          <button type="button" class="toggle-password" id="btnOlho" aria-label="Mostrar senha">
+            <svg id="iconeOlho" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-entrar" id="btnEntrar" disabled>Entrar</button>
+    </form>
+
+    <a href="#" class="forgot-link">Esqueceu a senha ou nome de usuário?</a>
+  </div>
+
+  <div class="info-direita">
+    <h3>Um dos jogos mais jogados pelas crianças.</h3>
+    <p>Roblox é o jogo mais popular entre as crianças e o maior gerador de desigualdades.</p>
+    <p>Roblox legal</p>
+  </div>
+
+  <footer>
+    <p>Todos os direitos reservados para Caue goedert</p>
+  </footer>
+
+  <script>
+    const inputUsuario = document.getElementById("usuario");
+    const inputSenha = document.getElementById("senha");
+    const btnOlho = document.getElementById("btnOlho");
+    const iconeOlho = document.getElementById("iconeOlho");
+    const btnEntrar = document.getElementById("btnEntrar");
+    const form = document.getElementById("loginForm");
+
+    btnOlho.addEventListener("click", () => {
+      const estaEscondida = inputSenha.type === "password";
+      inputSenha.type = estaEscondida ? "text" : "password";
+
+      if (estaEscondida) {
+        iconeOlho.innerHTML = `
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        `;
+      } else {
+        iconeOlho.innerHTML = `
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+        `;
+      }
+    });
+
+    function verificarCampos() {
+      const temUsuario = inputUsuario.value.trim() !== "";
+      const temSenha = inputSenha.value.trim() !== "";
+
+      if (temUsuario && temSenha) {
+        btnEntrar.disabled = false;
+        btnEntrar.classList.add("ativo");
+      } else {
+        btnEntrar.disabled = true;
+        btnEntrar.classList.remove("ativo");
+      }
+    }
+
+    inputUsuario.addEventListener("input", verificarCampos);
+    inputSenha.addEventListener("input", verificarCampos);
+
+    form.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+      window.location.href = "../jogo/inicio.html";
+    });
+  </script>
+
+</body>
+</html>
