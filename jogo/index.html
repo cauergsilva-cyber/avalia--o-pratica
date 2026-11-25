@@ -239,6 +239,114 @@
       font-size: 13px;
       color: #d1d5db;
     }
+
+    @media (max-width: 760px) {
+      body {
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-position: center top;
+        padding: 20px 16px 28px;
+      }
+
+      header {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        margin: 4px 0 18px;
+      }
+
+      header h1 {
+        font-size: clamp(26px, 8vw, 34px);
+      }
+
+      .login-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        max-width: 430px;
+        margin: 0 auto;
+        padding: 24px 20px;
+      }
+
+      .login-card h2 {
+        font-size: 23px;
+      }
+
+      input {
+        font-size: 16px;
+      }
+
+      .acoes-login {
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .galeria {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        max-width: 430px;
+        margin: 18px auto 0;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .imagens-roblox {
+        height: clamp(95px, 28vw, 140px);
+      }
+
+      .info-direita {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        width: 100%;
+        max-width: 430px;
+        margin: 18px auto 0;
+        text-align: center;
+      }
+
+      .info-direita h3 {
+        font-size: 17px;
+      }
+
+      .info-direita p {
+        font-size: 14px;
+      }
+
+      footer {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        margin-top: 18px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 390px) {
+      body {
+        padding-inline: 12px;
+      }
+
+      .login-card {
+        padding-inline: 16px;
+      }
+
+      .acoes-login {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .forgot-link {
+        margin-top: 0;
+      }
+    }
   </style>
 </head>
 <body>
